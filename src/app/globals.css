@@ -1,26 +1,367 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #faf6ec;
+  --color-ink: #22332b;
+  --color-forest: #1f3d2f;
+  --color-deep: #16291f;
+  --color-sage: #e9efe3;
+  --color-sage-line: #d3ddcf;
+  --color-muted: #55655c;
+  --color-mist: #c9d6c6;
+  --color-wine: #8f1d2f;
+  --color-gold: #d9b25a;
+  --color-gold-soft: #f1d58f;
+  --color-line: #e3e0d4;
+
+  --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-script: var(--font-script-face), cursive;
+
+  /* Mốc chuyển giữa giao diện mobile và desktop của bản thiết kế */
+  --breakpoint-nav: 860px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  [id] {
+    scroll-margin-top: 24px;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .ns-container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: clamp(16px, 5vw, 48px);
+    /* Nội dung nằm trên lớp lá rơi; nền của section thì nằm dưới lá */
+    position: relative;
+    z-index: 2;
+  }
+  .ns-section {
+    padding-block: clamp(20px, 3vw, 36px);
+  }
+  .ns-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-muted);
+  }
+  .ns-eyebrow > i {
+    width: 36px;
+    height: 1px;
+    background: var(--color-forest);
+  }
+  .ns-h2 {
+    margin-top: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(27px, 3.4vw, 40px);
+    line-height: 1.2;
+    color: var(--color-forest);
+  }
+  .ns-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding-inline: 20px;
+    border-radius: 10px;
+    background: var(--color-wine);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    white-space: nowrap;
+    transition:
+      transform 0.15s ease,
+      background-color 0.15s ease;
+  }
+  .ns-btn:hover {
+    transform: translateY(-1px);
+  }
+  .ns-link {
+    color: var(--color-forest);
+  }
+  .ns-link:hover {
+    color: var(--color-wine);
+  }
+  .ns-onphoto a:not(.ns-btn):hover,
+  .ns-ondark a:not(.ns-btn):hover {
+    color: var(--color-gold-soft);
+  }
+  .ns-field {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #cfd8cc;
+    border-radius: 10px;
+    padding: 0 12px;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--color-ink);
+    background: #fff;
+  }
+  textarea.ns-field {
+    min-height: 46px;
+    padding: 11px 12px;
+    resize: vertical;
+  }
+  .ns-faq summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  .ns-faq summary::-webkit-details-marker {
+    display: none;
+  }
+  .ns-plus {
+    transition: transform 0.15s ease;
+  }
+  .ns-faq[open] .ns-plus {
+    transform: rotate(45deg);
+  }
+  .ns-scroller {
+    scrollbar-width: none;
+  }
+  .ns-scroller::-webkit-scrollbar {
+    display: none;
+  }
+  /* Mép giấy xé: ảnh dưới đè lên ảnh trên, mép trên bị cắt răng cưa.
+     Toạ độ sinh sẵn một lần; lớp trắng phía sau lộ ra như thớ giấy. */
+  .ns-torn {
+    /* Không dùng filter hay z-index ở đây: chúng gom cả nền lẫn chữ vào một
+       lớp, khiến lá rơi không thể nằm giữa nền và chữ. */
+    position: relative;
+    margin-top: -26px;
+  }
+  .ns-torn-rim {
+    position: absolute;
+    inset: 0;
+    background: #f4efe2;
+    clip-path: polygon(0% 2px, 0.9% 7.6px, 1.8% 10.1px, 2.7% 9.7px, 3.9% 2.2px, 5.1% 2.8px, 5.5% 0.2px, 6.7% 5.1px, 7.25% 9.5px, 7.8% 11.1px, 8.2% 5.2px, 9.1% 7.4px, 9.5% 11.5px, 10.7% 6px, 11.1% 7.8px, 11.8% 0.3px, 12.2% 1.5px, 12.6% 5.4px, 13.8% 8.7px, 14.7% 5.8px, 15.25% 8px, 16.15% 10.4px, 16.7% 0.9px, 17.25% 2.5px, 18.45% 11.9px, 18.85% 1.5px, 19.75% 6.7px, 20.65% 2.4px, 21.2% 10.7px, 22.1% 3.5px, 23% 6px, 23.7% 11.9px, 24.6% 3.2px, 25% 1.9px, 25.9% 0px, 26.3% 6.6px, 27.5% 2.7px, 28.7% 3.8px, 29.9% 1.4px, 30.45% 7.5px, 31.15% 4.2px, 32.35% 11.2px, 32.9% 1.2px, 33.3% 11.1px, 33.85% 9.3px, 34.55% 1.9px, 34.95% 8.1px, 35.5% 4.9px, 36.05% 11.5px, 37.25% 0.2px, 37.95% 5.9px, 38.85% 8px, 39.4% 1.9px, 39.8% 5.3px, 40.7% 9.3px, 41.6% 0.7px, 42.3% 0.6px, 43% 7.9px, 43.4% 5px, 43.95% 4.7px, 44.65% 7.7px, 45.2% 11.8px, 46.1% 0.6px, 46.65% 11.5px, 47.85% 10.9px, 48.75% 0.3px, 49.3% 10.8px, 50% 9.5px, 50.7% 7.2px, 51.6% 5.8px, 52.5% 3.7px, 53.7% 7.1px, 54.25% 9.2px, 54.65% 4.6px, 55.2% 11.4px, 55.6% 3.2px, 56.3% 7.7px, 57.5% 5.1px, 58.4% 9px, 58.95% 1.6px, 59.35% 4.8px, 59.9% 0.3px, 60.8% 9.4px, 61.2% 10.4px, 61.9% 1.5px, 63.1% 11.3px, 64% 5.9px, 64.55% 7.5px, 65.1% 2.2px, 66% 2.4px, 67.2% 9.1px, 68.4% 8.5px, 68.8% 9.5px, 69.2% 4.7px, 69.6% 4.8px, 70.8% 2.1px, 71.35% 3px, 72.55% 3.8px, 72.95% 2.9px, 73.5% 3.7px, 74.2% 9.8px, 75.4% 5.9px, 76.6% 1.2px, 77.8% 0.7px, 79% 8.8px, 80.2% 3.7px, 81.4% 6.3px, 82.6% 2.3px, 83.8% 9.8px, 84.35% 4.3px, 85.05% 7.9px, 85.95% 1.3px, 86.35% 7.8px, 87.25% 6.1px, 87.65% 8.2px, 88.55% 5.7px, 89.75% 4.7px, 90.65% 0.8px, 91.05% 0.6px, 91.95% 0.5px, 92.65% 8.5px, 93.55% 8.7px, 94.45% 9.6px, 95.35% 4.6px, 96.25% 2.7px, 96.65% 0.4px, 97.2% 5.9px, 98.4% 10.7px, 99.3% 7.5px, 100% 8px, 100% 100%, 0 100%);
+  }
+  .ns-torn-top {
+    clip-path: polygon(0% 11.9px, 0.55% 12.9px, 0.95% 8.1px, 2.15% 8.4px, 3.35% 7.9px, 4.55% 10.2px, 4.95% 13.5px, 5.35% 10.6px, 6.55% 13.4px, 7.75% 8.9px, 8.3% 16.5px, 9.5% 21.2px, 10.7% 15.8px, 11.1% 21.6px, 11.5% 15.3px, 12.05% 11.3px, 12.6% 15.1px, 13.8% 11.6px, 14.35% 8.5px, 15.55% 16.6px, 16.25% 8.5px, 16.65% 15.5px, 17.85% 10.1px, 19.05% 13.4px, 19.75% 14px, 20.65% 12.4px, 21.2% 18.9px, 21.75% 8.2px, 22.45% 14.9px, 23.15% 17.9px, 23.85% 16.1px, 24.25% 8.8px, 25.15% 9.5px, 25.85% 9.3px, 26.75% 13.3px, 27.15% 18.5px, 28.35% 18.8px, 29.05% 12.1px, 29.75% 15.9px, 30.95% 19px, 31.35% 19.6px, 32.05% 14.1px, 32.45% 7.9px, 33.15% 16.7px, 34.05% 11.3px, 34.95% 20.3px, 35.65% 7.3px, 36.55% 12.3px, 37.75% 8.8px, 38.15% 10.3px, 38.85% 8.9px, 39.4% 13px, 40.3% 8.2px, 41.2% 13px, 41.9% 20.3px, 42.8% 20px, 43.5% 17.6px, 44.2% 17.2px, 45.1% 21.4px, 45.65% 8.2px, 46.2% 10.5px, 46.75% 7.2px, 47.95% 9.7px, 48.65% 7.1px, 49.55% 15px, 50.75% 15.5px, 51.3% 17.4px, 52.5% 21.3px, 52.9% 13.8px, 54.1% 12.9px, 55% 12.9px, 55.9% 16.5px, 56.3% 9.9px, 56.85% 13.6px, 57.25% 12.1px, 57.65% 8.5px, 58.85% 9.3px, 59.25% 21.2px, 60.45% 7.4px, 61% 16.2px, 61.55% 16.5px, 62.25% 16px, 63.15% 8.8px, 64.05% 21.9px, 64.95% 14.2px, 65.65% 8.3px, 66.05% 18.2px, 66.75% 14.2px, 67.3% 14.7px, 67.85% 21.3px, 69.05% 12.4px, 70.25% 20.7px, 71.45% 11.5px, 71.85% 17.4px, 72.55% 14.8px, 73.1% 12.3px, 73.65% 15px, 74.85% 11.9px, 75.4% 16.2px, 75.95% 19.1px, 76.85% 18.1px, 77.4% 10px, 78.3% 12.3px, 78.7% 21.8px, 79.4% 14.1px, 79.95% 17.4px, 80.65% 13.7px, 81.35% 21.3px, 82.05% 8.2px, 82.45% 10.4px, 83% 12.1px, 83.9% 16.4px, 85.1% 19.6px, 86% 20.6px, 86.7% 19px, 87.1% 19.5px, 87.5% 20.6px, 88.05% 14.2px, 88.6% 13.5px, 89.3% 8.3px, 90.2% 13.9px, 90.6% 17.9px, 91.15% 21.9px, 91.55% 9.3px, 92.45% 19.1px, 93% 16.2px, 94.2% 21.7px, 94.9% 9.3px, 96.1% 9px, 96.5% 19px, 96.9% 14.9px, 97.45% 13.5px, 98% 19.4px, 98.55% 7.4px, 99.1% 11.4px, 99.65% 18.5px, 100% 10.9px, 100% 100%, 0 100%);
+  }
+  /* Nền sóng vàng cho các section sáng màu. Ảnh đã được ghép với bản lật dọc
+     nên lặp theo chiều dọc không lộ đường nối; hai mép mờ về màu kem để khớp
+     với đường gợn sóng. */
+  .ns-paper {
+    background:
+      linear-gradient(
+        var(--color-cream),
+        transparent 70px,
+        transparent calc(100% - 70px),
+        var(--color-cream)
+      ),
+      url("/images/nen-song-vang.jpg") top center / max(100%, 900px) auto
+        repeat-y;
+  }
+  .ns-onphoto .ns-eyebrow,
+  .ns-onphoto .ns-h2 {
+    color: #fff;
+  }
+  .ns-onphoto .ns-eyebrow > i {
+    background: #fff;
+  }
+  .ns-onphoto .ns-h2 {
+    text-shadow: 0 2px 16px rgba(22, 41, 31, 0.6);
+  }
+  /* Lớp sóng mờ phía sau trôi nhẹ qua lại để mép section trông như đang gợn */
+  .ns-wave {
+    overflow: hidden;
+  }
+  .ns-wave-back {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ns-wave 9s ease-in-out infinite alternate;
+  }
+  @keyframes ns-wave {
+    from {
+      transform: scaleX(1.08) translateX(-3%);
+    }
+    to {
+      transform: scaleX(1.08) translateX(3%);
+    }
+  }
+  /* Hiện dần khi cuộn tới; lớp is-visible do RevealOnScroll gắn vào */
+  .ns-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  /* Biến thể hướng vào; trượt ngang chỉ bật trên màn hình rộng để mobile
+     không bị tràn ngang */
+  .ns-reveal.ns-zoom-in {
+    transform: scale(0.9);
+  }
+  @media (min-width: 860px) {
+    .ns-reveal.ns-from-left {
+      transform: translateX(-48px);
+    }
+    .ns-reveal.ns-from-right {
+      transform: translateX(48px);
+    }
+  }
+  .ns-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+  /* Ảnh nền cao hơn section một chút và trôi chậm theo cuộn trang */
+  .ns-parallax {
+    top: -12% !important;
+    height: 124% !important;
+    transform: translate3d(0, var(--ns-shift, 0px), 0);
+    will-change: transform;
+  }
+  .ns-polaroid {
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      rotate 0.3s ease,
+      scale 0.3s ease;
+  }
+  .ns-polaroid:hover {
+    rotate: 0deg;
+    scale: 1.04;
+    z-index: 1;
+  }
+  .ns-zoomable {
+    cursor: zoom-in;
+  }
+  /* Lá rơi: phần tử ngoài rơi thẳng xuống, hình lá bên trong lắc ngang và xoay */
+  .ns-leaf {
+    position: absolute;
+    top: -60px;
+    opacity: 0.85;
+    will-change: transform;
+    animation: ns-leaf-fall linear infinite;
+  }
+  .ns-leaf svg {
+    display: block;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.18));
+    animation: ns-leaf-sway ease-in-out infinite alternate;
+  }
+  /* Màn hình nhỏ: lá nhỏ lại và lắc hẹp hơn để không choán nội dung */
+  @media (max-width: 859px) {
+    .ns-leaf {
+      scale: 0.7;
+    }
+  }
+  @keyframes ns-leaf-fall {
+    to {
+      transform: translateY(calc(100lvh + 120px));
+    }
+  }
+  @keyframes ns-leaf-sway {
+    from {
+      transform: translateX(-28px) rotate(-35deg);
+    }
+    to {
+      transform: translateX(28px) rotate(55deg);
+    }
+  }
+  /* Ảnh hero phóng to chậm rồi thu lại; ảnh trong thẻ phóng nhẹ khi rê chuột */
+  .ns-kenburns {
+    animation: ns-kenburns 20s ease-in-out infinite alternate;
+  }
+  @keyframes ns-kenburns {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.06);
+    }
+  }
+  .ns-zoom {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  article:hover .ns-zoom {
+    transform: scale(1.07);
+  }
+  .ns-rise {
+    animation: ns-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes ns-rise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+  }
+  /* Chừa chỗ cho thanh đặt phòng cố định trên mobile */
+  .ns-footer {
+    padding-bottom: calc(108px + env(safe-area-inset-bottom, 0px));
+  }
+  @media (min-width: 860px) {
+    .ns-footer {
+      padding-bottom: 36px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ns-btn,
+    .ns-plus {
+      transition: none;
+    }
+    .ns-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .ns-rise,
+    .ns-wave-back,
+    .ns-kenburns {
+      animation: none;
+    }
+    .ns-leaf {
+      display: none;
+    }
+    .ns-parallax {
+      transform: none;
+    }
+    .ns-zoom {
+      transition: none;
+    }
+    article:hover .ns-zoom {
+      transform: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Chấm trong biểu tượng chuột ở hero: trượt xuống rồi mờ đi để gợi ý cuộn */
+.ns-cue-dot {
+  animation: ns-cue 1.8s ease-in-out infinite;
+}
+@keyframes ns-cue {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70%,
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ns-cue-dot {
+    animation: none;
+  }
 }

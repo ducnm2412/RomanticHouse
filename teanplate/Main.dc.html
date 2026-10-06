@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Hero Chữa Lành</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&amp;family=Cormorant+Unicase:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1D4A38}a:hover{color:#2E6B3F}
+@keyframes tileIn{from{opacity:0;transform:translateY(14px) scale(.9)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){img{animation:none !important}}
+</style>
+</helmet>
+<main style="position: relative; min-height: 100vh; overflow: hidden; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(14px, 2vw, 24px); padding: clamp(28px, 4vw, 48px) 20px; background: #EEF3EA; color: {{ink}}; font-family: 'Barlow Condensed', 'Segoe UI', sans-serif; text-align: center">
+<img src="./assets/eb1cdbd22933c28f4cd2fbc279801ede.jpg" alt="" style="position: absolute; left: -5%; top: -5%; width: 110%; height: 110%; object-fit: cover; filter: blur(42px) saturate(0.75); opacity: 0.5; animation: none">
+<div style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: linear-gradient(180deg, rgba(244, 247, 241, 0.25) 0%, rgba(244, 247, 241, 0.9) 58%, #F4F7F1 100%)"></div>
+<svg aria-hidden="true" viewBox="0 0 40 20" style="position: absolute; left: 6%; top: 5%; width: clamp(22px, 3.2vw, 46px); transform: rotate(-28deg)"><path d="M2 10 C12 -3 28 -3 38 10 C28 23 12 23 2 10Z" fill="#6BAF3C"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 40 20" style="position: absolute; left: 13%; top: 13%; width: clamp(20px, 2.8vw, 40px); transform: rotate(40deg)"><path d="M2 10 C12 -3 28 -3 38 10 C28 23 12 23 2 10Z" fill="#4F9A34"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 40 20" style="position: absolute; left: 24%; top: 7%; width: clamp(16px, 2vw, 30px); transform: rotate(-55deg)"><path d="M2 10 C12 -3 28 -3 38 10 C28 23 12 23 2 10Z" fill="#7DBB48"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 40 20" style="position: absolute; left: 33%; top: 3%; width: clamp(20px, 2.6vw, 38px); transform: rotate(18deg)"><path d="M2 10 C12 -3 28 -3 38 10 C28 23 12 23 2 10Z" fill="#5CA63A"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 40 20" style="position: absolute; left: 44%; top: 9%; width: clamp(14px, 1.6vw, 24px); transform: rotate(-70deg)"><path d="M2 10 C12 -3 28 -3 38 10 C28 23 12 23 2 10Z" fill="#86C155"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 40 20" style="position: absolute; left: 58%; top: 4%; width: clamp(12px, 1.4vw, 20px); transform: rotate(35deg)"><path d="M2 10 C12 -3 28 -3 38 10 C28 23 12 23 2 10Z" fill="#6BAF3C"></path></svg>
+
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px">
+<p style="margin: 0; font-size: clamp(18px, 2.3vw, 32px); font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: #75681C">Quy tụ chất xanh</p>
+<h1 style="margin: 0; font-family: 'Cormorant Unicase', 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(48px, 13.5vw, 188px); line-height: 1.02; letter-spacing: 0.01em; color: {{ink}}">Chữa Lành</h1>
+</div>
+<p style="position: relative; margin: 0; max-width: 1120px; font-size: clamp(12px, 1.15vw, 16px); font-weight: 500; line-height: 1.9; letter-spacing: 0.08em; text-transform: uppercase">Lắng nghe chính mình . Cột mốc cho hành trình mới . Lưu giữ giá trị tinh hoa . Khoảnh khắc thiên nhiên quý giá . Biết ơn mẹ thiên nhiên . Năng lượng tích cực . Giao lưu - kết nối ý tưởng . Chạm vào nguồn sự sống . Phủ đầy trải nghiệm quý giá</p>
+<div style="position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 36px; margin-top: 8px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 56px; height: 56px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 1.5px dashed #2E6B3F; border-radius: 8px; font-size: 12px; color: #2E6B3F">[Logo LDX]</div>
+<div style="font-size: 20px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #2E6B3F">Lâm Đồng Xanh</div>
+</div>
+<div style="font-size: clamp(14px, 1.5vw, 20px); font-weight: 400; letter-spacing: 0.42em; text-transform: uppercase">Pharmaceutical Village</div>
+</div>
+</main>
+<div style="position: absolute; width: 1246px; aspect-ratio: 0.935; filter: drop-shadow(0 18px 28px rgba(29, 74, 56, 0.22)); height: 1312px; left: 155px; top: -127px; position: absolute; margin: 0px; box-sizing: border-box; width: 1246px; position: absolute; left: 155px; top: -33px; right: auto; bottom: auto; margin: 0px; box-sizing: border-box; width: 1246px;">
+<div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.94); clip-path: polygon(21.1% 90.4%, 14.5% 83.4%, 8.8% 74.9%, 4.3% 65.8%, 1.2% 56.2%, 0.0% 48.1%, 0.6% 40.3%, 2.9% 33.1%, 6.9% 27.1%, 11.7% 22.4%, 17.9% 18.2%, 25.7% 14.4%, 35.0% 11.1%, 45.9% 8.3%, 59.7% 5.5%, 95.0% 0.0%, 96.2% 0.3%, 96.7% 1.2%, 99.5% 34.6%, 100.0% 47.8%, 99.7% 58.4%, 98.5% 67.6%, 96.5% 75.6%, 93.6% 82.3%, 89.9% 87.8%, 84.6% 92.8%, 78.3% 96.4%, 70.6% 98.9%, 62.0% 99.9%, 51.6% 99.6%, 39.9% 97.6%, 29.7% 94.5%)"></div>
+<img src="./assets/e275123ea1d9585376f227e95cfdcfc2.jpg" alt="Rổ bí cảnh nhiều màu" style="position: absolute; left: 26.16%; top: 79.31%; width: 60.69%; height: 17.99%; object-fit: cover; object-position: 50% 40%; clip-path: polygon(3.9% 65.6%, 1.8% 60.4%, 0.6% 55.0%, 0.0% 46.7%, 0.4% 38.2%, 1.5% 32.6%, 7.9% 6.6%, 10.1% 1.7%, 12.0% 0.0%, 94.2% 13.3%, 96.2% 15.3%, 97.9% 18.9%, 99.4% 25.8%, 100.0% 32.0%, 99.8% 40.6%, 98.6% 48.2%, 94.1% 61.7%, 88.5% 74.2%, 83.1% 83.0%, 77.8% 89.4%, 71.0% 95.1%, 64.4% 98.4%, 57.3% 100.0%, 49.5% 99.7%, 34.7% 94.5%, 26.2% 88.9%, 18.9% 82.7%, 10.8% 74.3%); animation: tileIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.24s both">
+<img src="./assets/24a9cb459bacdd363bbf081e63a8d0b3.jpg" alt="Dâu tây chín trên luống" style="position: absolute; left: 38.26%; top: 52.03%; width: 38.1%; height: 25.72%; object-fit: cover; object-position: 55% 28%; clip-path: polygon(10.4% 97.0%, 5.2% 94.8%, 1.5% 89.5%, 0.0% 82.4%, 1.2% 75.1%, 40.0% 5.8%, 42.2% 2.8%, 45.0% 0.8%, 48.1% 0.0%, 89.6% 3.0%, 93.8% 4.4%, 97.9% 9.2%, 99.4% 13.2%, 100.0% 17.6%, 99.6% 22.1%, 98.3% 26.2%, 60.0% 94.2%, 57.8% 97.2%, 55.0% 99.2%, 51.9% 100.0%); animation: tileIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.42s both">
+<img src="./assets/bc52796963f6e366b92de7e6233eb1d0.jpg" alt="Quả bí trắng sọc xanh trên tay" style="position: absolute; left: 67.37%; top: 53.49%; width: 29.46%; height: 25.79%; object-fit: cover; object-position: 40% 55%; clip-path: polygon(86.6% 1.2%, 92.0% 2.6%, 96.5% 6.2%, 99.3% 11.4%, 100.0% 17.3%, 97.9% 41.0%, 94.5% 62.5%, 89.0% 84.9%, 86.7% 91.4%, 84.4% 95.1%, 80.0% 98.6%, 73.2% 100.0%, 13.3% 96.6%, 9.2% 95.7%, 4.4% 92.6%, 1.8% 89.1%, 0.0% 83.5%, 0.4% 77.5%, 2.1% 73.4%, 52.4% 4.6%, 55.6% 1.9%, 60.8% 0.0%); animation: tileIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.60s both">
+<img src="./assets/644e444db65304b9b4d73276a84641e1.jpg" alt="Chùm hồng vàng dưới trời xanh" style="position: absolute; left: 61.08%; top: 11.2%; width: 36.03%; height: 39.91%; object-fit: cover; object-position: 50% 70%; clip-path: polygon(73.6% 3.8%, 76.1% 1.8%, 79.2% 0.5%, 82.6% 0.0%, 86.0% 0.4%, 90.9% 2.9%, 93.0% 5.2%, 94.1% 8.0%, 97.6% 44.1%, 99.5% 72.0%, 100.0% 91.1%, 98.2% 95.5%, 94.2% 98.7%, 89.0% 100.0%, 10.8% 96.6%, 5.4% 95.2%, 2.0% 92.5%, 0.1% 89.0%, 0.0% 85.2%, 1.6% 81.6%); animation: tileIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.69s both">
+<img src="./assets/af847b9689f2d36a48f3606793f3dc3f.jpg" alt="Hoa lồng đèn đỏ" style="position: absolute; left: 2.87%; top: 25.73%; width: 29.33%; height: 59.2%; object-fit: cover; object-position: 55% 65%; clip-path: polygon(27.0% 2.0%, 32.9% 0.2%, 39.9% 0.0%, 46.3% 1.3%, 50.5% 3.9%, 100.0% 78.9%, 99.7% 82.0%, 97.3% 84.2%, 73.8% 98.1%, 70.5% 99.3%, 66.5% 100.0%, 59.5% 99.9%, 53.4% 98.2%, 43.5% 92.0%, 31.4% 83.0%, 22.3% 74.9%, 13.9% 66.0%, 7.0% 56.5%, 2.7% 47.9%, 0.6% 41.2%, 0.0% 34.1%, 0.8% 28.5%, 3.1% 22.4%, 6.7% 17.0%, 11.8% 11.8%, 18.9% 6.6%); animation: tileIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both">
+<img src="./assets/0c96921fba5c6d265f4988e26f4ded8f.jpg" alt="Bí đỏ mini" style="position: absolute; left: 28.27%; top: 27.87%; width: 28.23%; height: 39.16%; object-fit: cover; object-position: 50% 50%; clip-path: polygon(99.4% 38.8%, 100.0% 42.6%, 97.7% 47.1%, 40.0% 96.9%, 35.2% 99.2%, 29.5% 100.0%, 23.8% 99.3%, 18.9% 97.1%, 15.1% 92.9%, 0.6% 61.0%, 0.0% 58.2%, 0.6% 55.4%, 3.1% 52.0%, 59.1% 3.7%, 62.3% 1.6%, 67.7% 0.1%, 73.5% 0.0%, 78.9% 1.5%, 83.0% 4.2%, 84.9% 6.9%); animation: tileIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.33s both">
+<img src="./assets/6016bfe09ffd34382abe2f24a7589846.jpg" alt="Quả bí vàng trên tay" style="position: absolute; left: 19.18%; top: 11.91%; width: 29.16%; height: 30.32%; object-fit: cover; object-position: 45% 55%; clip-path: polygon(0.6% 39.8%, 0.0% 36.1%, 1.0% 31.2%, 3.1% 28.0%, 7.4% 24.8%, 22.2% 18.1%, 39.3% 11.6%, 59.7% 5.2%, 79.4% 0.1%, 83.5% 0.0%, 87.5% 1.0%, 92.9% 4.7%, 95.5% 9.0%, 100.0% 22.4%, 99.7% 28.5%, 97.3% 32.9%, 43.0% 95.3%, 40.0% 97.9%, 34.8% 99.9%, 29.2% 100.0%, 25.1% 98.8%, 21.7% 96.5%, 19.2% 93.5%); animation: tileIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.51s both">
+<img src="./assets/eb1cdbd22933c28f4cd2fbc279801ede.jpg" alt="Cành hồng trĩu quả" style="position: absolute; left: 49.79%; top: 4.75%; width: 36.38%; height: 33.26%; object-fit: cover; object-position: 70% 65%; clip-path: polygon(0.5% 29.2%, 0.0% 25.8%, 0.5% 22.5%, 1.9% 19.3%, 4.1% 16.8%, 8.0% 14.6%, 20.2% 12.0%, 88.0% 0.0%, 92.5% 0.6%, 95.5% 2.3%, 97.9% 4.8%, 99.8% 9.0%, 100.0% 13.6%, 97.7% 18.9%, 39.2% 95.5%, 36.7% 97.9%, 32.6% 99.8%, 29.2% 100.0%, 24.9% 98.7%, 21.3% 95.8%, 19.6% 92.8%); animation: tileIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.78s both">
+</div></x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ink":{"editor":"color","default":"#1D4A38","options":["#1D4A38","#234B2A","#3A3F1E","#7A3B12"]},"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+renderVals() {
+return { ink: this.props.ink ?? '#1D4A38' };
+}
+}
+</script>
+</body>
+</html>
