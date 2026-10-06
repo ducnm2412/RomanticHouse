@@ -322,9 +322,9 @@ function Backdrop({
         className={`ns-parallax object-cover ${position}`}
       />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(22,41,31,0.62)_0%,rgba(22,41,31,0.2)_42%,rgba(22,41,31,0.1)_100%)]" />
-      <Wave flip className="absolute inset-x-0 -top-px text-cream" />
+      <Wave flip className="absolute inset-x-0 -top-px text-leaf" />
       {!noBottomEdge && (
-        <Wave className="absolute inset-x-0 -bottom-px text-cream" />
+        <Wave className="absolute inset-x-0 -bottom-px text-leaf" />
       )}
     </>
   );
@@ -337,7 +337,7 @@ function PineBranch({ flip }: { flip?: boolean }) {
       height="28"
       viewBox="0 0 64 28"
       fill="none"
-      stroke="#5E7F63"
+      stroke="#EEF6E6"
       strokeWidth="1.8"
       strokeLinecap="round"
       aria-hidden="true"
@@ -448,7 +448,7 @@ export default function Home() {
         >
           <span className="ns-cue-dot h-2 w-[3px] rounded-full bg-white" />
         </a>
-        <Wave className="absolute inset-x-0 -bottom-px z-1 text-cream" />
+        <Wave className="absolute inset-x-0 -bottom-px z-1 text-leaf" />
       </section>
 
       <div className="ns-paper">
@@ -473,7 +473,7 @@ export default function Home() {
           className="pt-[clamp(28px,4vw,48px)] pb-[clamp(20px,3vw,36px)]"
         >
           <div className="ns-container flex flex-wrap items-center gap-[clamp(32px,6vw,80px)]">
-            <div className="ns-reveal ns-from-left min-w-0 flex-[1_1_380px]">
+            <div className="ns-reveal ns-from-left ns-ongreen min-w-0 flex-[1_1_380px]">
               <Heading no="01" label="Về Romantic">
                 Luôn đổi mới để hợp ý khách
               </Heading>
@@ -762,7 +762,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <Wave className="absolute inset-x-0 -bottom-px text-cream" />
+          <Wave className="absolute inset-x-0 -bottom-px text-leaf" />
         </section>
       </div>
 
@@ -805,7 +805,7 @@ export default function Home() {
                 href={SITE.facebook}
                 target="_blank"
                 rel="noopener"
-                className="ns-link inline-flex min-h-11 items-center gap-2.5 rounded-full border-[1.5px] border-forest px-6 text-[15px] font-semibold"
+                className="inline-flex min-h-11 items-center gap-2.5 rounded-full border-[1.5px] border-white px-6 text-[15px] font-semibold text-white hover:bg-white hover:text-forest"
               >
                 Xem thêm hình ảnh {arrow}
               </a>
@@ -839,7 +839,7 @@ export default function Home() {
               ))}
             </AutoScroller>
             <div className="ns-reveal mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
-              <p className="max-w-[34em] text-muted">
+              <p className="ns-ongreen max-w-[34em] text-muted">
                 Muốn biết giá đúng ngày bạn đi hoặc giá nghỉ ngắn ngày? Nhắn
                 Zalo, homestay báo giá ngay.
               </p>
@@ -856,7 +856,7 @@ export default function Home() {
         </section>
       </div>
 
-      <section className="ns-onphoto relative overflow-hidden bg-black py-[clamp(64px,8vw,116px)]">
+      <section className="ns-onphoto ns-compact relative overflow-hidden bg-black py-[clamp(48px,5vw,68px)]">
         <Image
           src={img.bangHieuDem}
           alt=""
@@ -865,23 +865,23 @@ export default function Home() {
           className="ns-parallax object-cover"
         />
         <div className="absolute inset-0 bg-black/70" />
-        <Wave flip className="absolute inset-x-0 -top-px text-cream" />
-        <Wave className="absolute inset-x-0 -bottom-px text-deep" />
-        <div className="ns-container relative flex flex-col gap-[clamp(32px,4.5vw,56px)]">
-          <div className="ns-reveal">
+        <Wave flip className="absolute inset-x-0 -top-px text-leaf" />
+        <Wave className="absolute inset-x-0 -bottom-px text-leaf" />
+        <div className="ns-container relative grid items-start gap-[clamp(28px,3.5vw,44px)] nav:grid-cols-[1fr_1.05fr]">
+          <div className="ns-reveal nav:pt-[clamp(14px,1.6vw,20px)]">
             <div className="ns-eyebrow">
               <span>08</span>
               <i />
               <span>Hỏi đáp</span>
             </div>
             <h2 className="ns-h2">Những câu hỏi thường gặp</h2>
-            <div className="mt-5 flex flex-col gap-3">
+            <div className="mt-3.5 flex flex-col gap-1.5">
               {faqs.map((faq) => (
                 <details
                   key={faq.q}
                   className="ns-faq rounded-[10px] border border-line bg-white"
                 >
-                  <summary className="flex min-h-[52px] items-center justify-between gap-3 px-4 py-2 text-[15px] font-medium">
+                  <summary className="flex min-h-10 items-center justify-between gap-3 px-3.5 py-1 text-[14.5px] font-medium">
                     <span>{faq.q}</span>
                     <span
                       className="ns-plus text-[22px] leading-none text-wine"
@@ -890,7 +890,7 @@ export default function Home() {
                       +
                     </span>
                   </summary>
-                  <div className="px-4 pb-4 text-[15px] text-muted">
+                  <div className="px-3.5 pb-3 text-[14.5px] text-muted">
                     {faq.a}
                   </div>
                 </details>
@@ -900,7 +900,7 @@ export default function Home() {
 
           <div
             id="khoi-dat-phong"
-            className="ns-reveal ns-ondark rounded-[28px] border border-white/15 bg-black/55 p-[clamp(20px,3vw,36px)] text-[#F4EFE2] backdrop-blur-sm"
+            className="ns-reveal ns-ondark rounded-[22px] border border-white/15 bg-black/55 p-[clamp(14px,1.6vw,20px)] text-[#F4EFE2] backdrop-blur-sm"
           >
             <div className="ns-eyebrow text-mist">
               <span>09</span>
@@ -915,7 +915,7 @@ export default function Home() {
 
       <footer
         id="lien-he"
-        className="ns-ondark ns-footer bg-deep pt-4 text-[14.5px] text-mist"
+        className="ns-ondark ns-footer bg-leaf pt-4 text-[14.5px] text-[#EEF6E6]"
       >
         <div className="ns-container grid gap-x-10 gap-y-7 nav:grid-cols-[1.1fr_1.2fr_1.3fr]">
           <div className="flex flex-col items-start gap-3">
@@ -953,7 +953,7 @@ export default function Home() {
             <div className="flex gap-2.5">
               <Icon
                 size={18}
-                stroke="#D9B25A"
+                stroke="#F1D58F"
                 width={1.8}
                 className="mt-[3px] shrink-0"
               >
@@ -964,7 +964,7 @@ export default function Home() {
             <div className="flex gap-2.5">
               <Icon
                 size={18}
-                stroke="#D9B25A"
+                stroke="#F1D58F"
                 width={1.8}
                 className="mt-[3px] shrink-0"
               >
@@ -1000,7 +1000,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-        <div className="ns-container mt-6 border-t border-white/10 pt-4 text-[13.5px]">
+        <div className="ns-container mt-6 border-t border-white/25 pt-4 text-[13.5px]">
           © 2026 {SITE.name}
         </div>
       </footer>

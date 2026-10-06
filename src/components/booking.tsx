@@ -130,10 +130,10 @@ export function BookingForm() {
         setSent(true);
         setCopied(false);
       }}
-      className="mt-5 rounded-2xl bg-cream p-[clamp(14px,1.8vw,20px)] text-ink"
+      className="mt-3 rounded-2xl bg-cream p-3.5 text-ink"
     >
-      <div className="grid grid-cols-2 gap-x-3 gap-y-2.5 nav:grid-cols-4">
-        <div className="flex flex-col gap-[5px]">
+      <div className="grid grid-cols-2 gap-x-3 gap-y-2">
+        <div className="flex flex-col gap-1">
           <label htmlFor="f-name" className={labelClass}>
             Họ và tên
           </label>
@@ -147,7 +147,7 @@ export function BookingForm() {
             onChange={(e) => b.set("name", e.target.value)}
           />
         </div>
-        <div className="flex flex-col gap-[5px]">
+        <div className="flex flex-col gap-1">
           <label htmlFor="f-phone" className={labelClass}>
             SĐT / Zalo
           </label>
@@ -161,7 +161,7 @@ export function BookingForm() {
             onChange={(e) => b.set("phone", e.target.value)}
           />
         </div>
-        <div className="flex flex-col gap-[5px]">
+        <div className="flex flex-col gap-1">
           <label htmlFor="f-room" className={labelClass}>
             Hạng phòng
           </label>
@@ -178,7 +178,7 @@ export function BookingForm() {
             ))}
           </select>
         </div>
-        <div className="flex flex-col gap-[5px]">
+        <div className="flex flex-col gap-1">
           <label htmlFor="f-guests" className={labelClass}>
             Số khách
           </label>
@@ -195,7 +195,7 @@ export function BookingForm() {
             ))}
           </select>
         </div>
-        <div className="flex flex-col gap-[5px]">
+        <div className="flex flex-col gap-1">
           <label htmlFor="f-checkin" className={labelClass}>
             Ngày nhận
           </label>
@@ -208,7 +208,7 @@ export function BookingForm() {
             onChange={(e) => b.set("checkin", e.target.value)}
           />
         </div>
-        <div className="flex flex-col gap-[5px]">
+        <div className="flex flex-col gap-1">
           <label htmlFor="f-checkout" className={labelClass}>
             Ngày trả
           </label>
@@ -221,7 +221,7 @@ export function BookingForm() {
             onChange={(e) => b.set("checkout", e.target.value)}
           />
         </div>
-        <div className="col-span-2 flex flex-col gap-[5px]">
+        <div className="col-span-2 flex flex-col gap-1">
           <label htmlFor="f-note" className={labelClass}>
             Ghi chú
           </label>
@@ -237,7 +237,7 @@ export function BookingForm() {
       </div>
       <button
         type="submit"
-        className="ns-btn mt-3 min-h-12 w-full cursor-pointer rounded-xl text-base"
+        className="ns-btn mt-3 min-h-11 w-full cursor-pointer rounded-xl text-[15px]"
       >
         Gửi yêu cầu đặt phòng
       </button>
